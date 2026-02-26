@@ -70,7 +70,10 @@ class GalleryController extends Controller
     public function edit($id)
     {
         $item = Gallery::findOrFail($id);
-        return view('pages.admin.gallery.edit', compact('item'));
+        $travel_packages = TravelPackage::all();
+
+
+        return view('pages.admin.gallery.edit', compact('item', 'travel_packages'));
     }
 
     /**
@@ -80,12 +83,15 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GalleryRequest $request, $id)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
+        $data['image'] = $request->file('image')->store(
+            'assets/gallery', 'public'
+        );
 
         $item = Gallery::findOrFail($id);
+
         $item->update($data);
 
         return redirect()->route('gallery.index');
