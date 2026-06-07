@@ -1,64 +1,122 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Nomads - Travel & Adventure Booking Platform
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Nomads is a modern, full-featured Travel and Adventure Booking web application built with the Laravel framework. It provides a platform for users to discover exciting travel packages, view itinerary details, and seamlessly book their next adventure, while offering administrators a robust dashboard to manage travel inventory, galleries, and customer transactions.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### **1. User & Authentication Features**
+- **User Registration & Login**: Built-in authentication flow for travelers.
+- **Email Verification**: Enforced registration security using email verification middleware.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### **2. Travel & Destination Exploration**
+- **Landing Page**: Highlights popular and featured destinations, customer reviews, and partner networks.
+- **Detailed Travel Packages**: Each destination features:
+  - High-quality photo galleries.
+  - Quick information (Featured Event, Language, Foods, Departure Date, Duration, and Package Type).
+  - Clear pricing details per person.
 
-## Learning Laravel
+### **3. Seamless Booking & Checkout Flow**
+- **Interactive Checkout**: Travelers can initiate booking with a single click.
+- **Add / Remove Members**: Option to book for multiple participants dynamically in the same transaction.
+- **Visa Configuration**: Select and add Visa requirements for participants, with automatic price updates.
+- **Total Calculation**: Auto-calculated checkout summaries including transactional totals.
+- **Verification & Success Page**: Confirmation state for successfully placed bookings.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### **4. Admin Dashboard (Management Portal)**
+Accessible only by authorized administrators (via the `admin` middleware):
+- **Dashboard Overview**: Displays statistics on total packages, transaction statuses (pending, success, cancel), and revenue.
+- **Travel Package Management**: Complete CRUD operations for creating, updating, and removing travel destinations.
+- **Gallery Management**: Manage travel images, uploading and binding them directly to specific travel packages.
+- **Transaction Management**: Review traveler bookings, update transaction status (e.g., changing status to SUCCESS, CANCEL, or PENDING), and view order details.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🛠️ Technology Stack
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- **Backend Framework**: [Laravel 8](https://laravel.com) (PHP 7.3 - 8.0+)
+- **Database**: MySQL / MariaDB (utilizes Eloquent ORM & migrations)
+- **Frontend Utilities**:
+  - [Bootstrap 5](https://getbootstrap.com) (Responsive layout & modern UI styling)
+  - [Sass](https://sass-lang.com) (Custom stylesheets)
+  - [Laravel Mix / Webpack](https://laravel-mix.com) (Asset compilation)
+  - Vue.js (v2) & Axios (used for minor frontend operations)
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## 📦 Project Structure
 
-## Contributing
+Key directories and components:
+- [web.php](file:///c:/Users/satri/Documents/Development/web-app/nomad/routes/web.php): Contains public routes, checkout routes (protected by `auth` & `verified`), and admin panel routes (protected by `admin` middleware).
+- [app/Models](file:///c:/Users/satri/Documents/Development/web-app/nomad/app/Models/): Database schemas and relations for [TravelPackage](file:///c:/Users/satri/Documents/Development/web-app/nomad/app/Models/TravelPackage.php), [Gallery](file:///c:/Users/satri/Documents/Development/web-app/nomad/app/Models/Gallery.php), [Transaction](file:///c:/Users/satri/Documents/Development/web-app/nomad/app/Models/Transaction.php), and [TransactionDetail](file:///c:/Users/satri/Documents/Development/web-app/nomad/app/Models/TransactionDetail.php).
+- [app/Http/Controllers/Admin](file:///c:/Users/satri/Documents/Development/web-app/nomad/app/Http/Controllers/Admin/): Contains controllers for back-office administration logic.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## ⚙️ Installation & Local Setup
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Follow these steps to run the application locally on your machine:
 
-## Security Vulnerabilities
+### **Prerequisites**
+- PHP version `>= 7.3` and `< 8.1`
+- Composer
+- Node.js & npm
+- MySQL or MariaDB
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### **Step 1: Clone the Repository**
+```bash
+git clone https://github.com/syahreza-satria/nomads.git
+cd nomads
+```
 
-## License
+### **Step 2: Install Backend Dependencies**
+```bash
+composer install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### **Step 3: Install and Compile Frontend Assets**
+```bash
+npm install
+npm run dev
+```
+
+### **Step 4: Configure Environment Settings**
+Copy the template environment file to create your own configuration:
+```bash
+cp .env.example .env
+```
+Open the `.env` file and configure your database settings:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nomads
+DB_USERNAME=root
+DB_PASSWORD=your_password
+```
+*(Also configure your `MAIL_*` settings if you want to test email verification and registration).*
+
+### **Step 5: Generate Application Key**
+```bash
+php artisan key:generate
+```
+
+### **Step 6: Run Migrations**
+Prepare the database tables:
+```bash
+php artisan migrate
+```
+
+### **Step 7: Start Development Server**
+Run the Laravel development server:
+```bash
+php artisan serve
+```
+By default, the application will be accessible at: [http://localhost:8000](http://localhost:8000)
+
+Alternatively, you can run the preconfigured development script:
+```bash
+composer dev
+```
+*(This command uses `npx concurrently` to launch `php artisan serve`, compile front-end assets, and listen to the queue automatically).*
